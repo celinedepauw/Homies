@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.homies.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_buyersFragment"
+            app:destination="@id/buyersFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_homeFragment_to_addProjectFragment"
+            app:destination="@id/addProjectFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_salersFragment"
+            app:destination="@id/salersFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/addProjectFragment"
+        android:name="com.example.homies.ui.addProject.AddProjectFragment"
+        android:label="fragment_add_project"
+        tools:layout="@layout/fragment_add_project" />
+    <fragment
+        android:id="@+id/updateProjectFragment"
+        android:name="com.example.homies.ui.updateProject.UpdateProjectFragment"
+        android:label="fragment_update_project"
+        tools:layout="@layout/fragment_update_project" >
+        <argument
+            android:name="project"
+            app:argType="com.example.homies.room.project.Project" />
+    </fragment>
+    <fragment
+        android:id="@+id/buyersFragment"
+        android:name="com.example.homies.ui.listProjects.BuyersFragment"
+        android:label="fragment_buyers"
+        tools:layout="@layout/fragment_buyers" >
+        <action
+            android:id="@+id/action_buyersFragment_to_detailsProjectFragment"
+            app:destination="@id/detailsProjectFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsProjectFragment"
+        android:name="com.example.homies.ui.detailsProject.DetailsProjectFragment"
+        android:label="fragment_details_project"
+        tools:layout="@layout/fragment_details_project" >
+        <action
+            android:id="@+id/action_detailsProjectFragment_to_updateProjectFragment"
+            app:destination="@id/updateProjectFragment"
+            app:popUpTo="@id/detailsProjectFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="project"
+            app:argType="com.example.homies.room.project.Project" />
+    </fragment>
+    <fragment
+        android:id="@+id/salersFragment"
+        android:name="com.example.homies.ui.listProjects.SalersFragment"
+        android:label="SalersFragment"
+        tools:layout="@layout/fragment_salers">
+        <action
+            android:id="@+id/action_salersFragment_to_detailsProjectFragment"
+            app:destination="@id/detailsProjectFragment" />
+    </fragment>
+</navigation>
